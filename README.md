@@ -1,1 +1,3 @@
-# variational_causal_learning_ccn_2023
+# Variational inference for continuous time causal learning
+
+## Submission for the conference on computational cognitive neuroscience (2023)
