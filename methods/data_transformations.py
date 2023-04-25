@@ -43,3 +43,17 @@ def add_dampened_tag(df):
     df_confound = df[df.trial_name == 'dampened']
     df.loc[idx, 'sign'] = df_confound.apply(lambda x: tag_column(x.ground_truth, confound_tags), axis=1).to_list()
     return df
+
+
+def split_model_hue(model, internal_state):
+    if internal_state == 'mean_field_vis':
+        model_type = 'Variational'
+    else:
+        model_type = 'Standard'
+    
+    if 'local_computations' in model or 'LC' in model:
+        model_factorisation = 'LC'
+    else:
+        model_factorisation = 'Normative'
+
+    return model_type, model_factorisation
